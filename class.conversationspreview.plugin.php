@@ -3,7 +3,7 @@
 $PluginInfo['conversationspreview'] = [
     'Name' => 'Conversations Preview',
     'Description' => 'Adds a preview button to conversation messages.',
-    'Version' => '1.0',
+    'Version' => '1.1',
     'MobileFriendly' => true,
     'Author' => 'Bleistivt',
     'AuthorUrl' => 'http://bleistivt.net',
