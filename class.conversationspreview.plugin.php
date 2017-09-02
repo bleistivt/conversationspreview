@@ -11,7 +11,7 @@ $PluginInfo['conversationspreview'] = [
     'GitHub' => 'bleistivt/conversationspreview'
 ];
 
-class ConversationsPreview extends Gdn_Plugin {
+class ConversationsPreviewPlugin extends Gdn_Plugin {
 
     public function messagesController_render_before($sender) {
         $sender->addJsFile('preview.js', 'plugins/conversationspreview');
