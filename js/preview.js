@@ -54,4 +54,8 @@ jQuery(function ($) {
             });
         });
 
+    $(document).on('MessageAdded', function () {
+        $('.WriteButton').click();
+    });
+
 });
