@@ -1,16 +1,5 @@
 <?php
 
-$PluginInfo['conversationspreview'] = [
-    'Name' => 'Conversations Preview',
-    'Description' => 'Adds a preview button to conversation messages.',
-    'Version' => '1.1',
-    'MobileFriendly' => true,
-    'Author' => 'Bleistivt',
-    'AuthorUrl' => 'http://bleistivt.net',
-    'License' => 'GNU GPL2',
-    'GitHub' => 'bleistivt/conversationspreview'
-];
-
 class ConversationsPreviewPlugin extends Gdn_Plugin {
 
     public function messagesController_render_before($sender) {
