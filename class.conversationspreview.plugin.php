@@ -4,8 +4,8 @@ class ConversationsPreviewPlugin extends Gdn_Plugin {
 
     public function messagesController_render_before($sender) {
         $sender->addJsFile('preview.js', 'plugins/conversationspreview');
-        $sender->addDefinition('conversationsPreview.preview', t('Preview'));
-        $sender->addDefinition('conversationsPreview.edit', t('Edit'));
+        $sender->addDefinition('conversationsPreview.preview', Gdn::translate('Preview'));
+        $sender->addDefinition('conversationsPreview.edit', Gdn::translate('Edit'));
     }
 
     public function messagesController_preview_create($sender) {
@@ -23,7 +23,7 @@ class ConversationsPreviewPlugin extends Gdn_Plugin {
 
         echo '<div class="Message">'.Gdn_Format::to(
             $sender->EventArguments['MessageBody'],
-            $request->post('Format', c('Garden.InputFormatter'))
+            $request->post('Format', Gdn::config('Garden.InputFormatter'))
         ).'</div>';
 
         $sender->fireEvent('AfterMessagePreviewFormat');
