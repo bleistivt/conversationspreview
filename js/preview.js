@@ -1,18 +1,16 @@
 /*global gdn, jQuery*/
 
-jQuery(function ($) {
-    'use strict';
-
-    var $preview = $('<div class="Preview"></div>')
+jQuery(($) => {
+    const $preview = $('<div class="Preview"></div>')
         .insertBefore('#ConversationForm .bodybox-wrap, #Form_ConversationMessage .bodybox-wrap')
         .hide();
 
-    var $textbox = $('#ConversationForm textarea[name="Body"], #Form_ConversationMessage textarea[name="Body"]');
+    const $textbox = $('#ConversationForm textarea[name="Body"], #Form_ConversationMessage textarea[name="Body"]');
 
     $('<a class="Button PreviewButton">' + gdn.getMeta('conversationsPreview.preview') + '</a>')
         .insertBefore('#ConversationForm input[type="submit"], #Form_ConversationMessage input[type="submit"]')
-        .click(function (e) {
-            var $this = $(e.target);
+        .click(({target}) => {
+            const $this = $(target);
 
             if ($this.hasClass('WriteButton')) {
                 $preview.hide();
@@ -37,7 +35,7 @@ jQuery(function ($) {
                     Format: $this.closest('form').find('input[name="Format"]').val(),
                     TransientKey: gdn.definition('TransientKey')
                 },
-                function (data) {
+                (data) => {
                     $preview.html(data).show();
                     $textbox.hide();
 
@@ -49,13 +47,12 @@ jQuery(function ($) {
                     $(document).trigger('PreviewLoaded');
                 },
                 'html'
-            ).always(function () {
+            ).always(() => {
                 gdn.enable($this);
             });
         });
 
-    $(document).on('MessageAdded', function () {
+    $(document).on('MessageAdded', () => {
         $('.WriteButton').click();
     });
-
 });
